@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('products');
 });
-Route::group(['prefix' => 'api'], function () {
+Route::group(['prefix' => 'api.exampleproject.gisoft/'], function () {
+    Route::get('categories', 'App\Http\Controllers\Api\CategoryController@index');
     Route::get('products', 'App\Http\Controllers\Api\ProductController@index');
+    Route::get('products/{id}', 'App\Http\Controllers\Api\ProductController@getProductById');
 });
 
